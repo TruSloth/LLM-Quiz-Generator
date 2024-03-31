@@ -1,0 +1,11 @@
+version: '1'
+services:
+  CZ4052-Cloud-Computing-Quiz-Generator:
+    image: cz4052-cloud-computing-quiz-generator:latest
+    build: ./app
+    command: streamlit run quiz_app/main.py --server.port 8080
+    volumes:
+      - ./quiz_app/:/app/quiz_app
+    ports:
+      - 0.0.0.0:8080:8080
+    env_file: ./.env 
